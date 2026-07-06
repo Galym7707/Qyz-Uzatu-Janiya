@@ -576,7 +576,8 @@ h2 {
 }
 
 .map-panel p,
-.map-panel a {
+.map-panel a,
+.map-actions {
   position: relative;
   z-index: 1;
 }
@@ -587,6 +588,12 @@ h2 {
   font-family: var(--serif);
   font-size: 34px;
   line-height: 1.05;
+}
+
+.map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .map-link[aria-disabled="true"] {

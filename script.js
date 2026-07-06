@@ -1,6 +1,9 @@
 const eventDetails = {
-  eventDate: "",
-  mapUrl: "",
+  eventDate: "2026-08-21T18:00:00+05:00",
+  mapUrls: {
+    twoGis: "https://2gis.kz/almaty/geo/70000001093728642/77.035326,43.329644",
+    google: "https://www.google.com/maps/search/?api=1&query=43.329644,77.035326",
+  },
 };
 
 const translations = {
@@ -15,11 +18,11 @@ const translations = {
     primaryCta: "Шақыруды көру",
     secondaryCta: "Қатысуымды білдіру",
     dateLabel: "Күні",
-    dateValue: "Күні жақында қосылады",
+    dateValue: "21 тамыз 2026",
     timeLabel: "Уақыты",
-    timeValue: "Уақыты нақтыланады",
+    timeValue: "18:00",
     placeLabel: "Орын",
-    placeValue: "Мекенжай қосылады",
+    placeValue: "Royal Plaza",
     inviteEyebrow: "Ақ ниетпен",
     inviteTitle: "Қыз ұзату тойына шақырамыз",
     inviteBodyOne:
@@ -29,7 +32,7 @@ const translations = {
     days: "күн",
     hours: "сағ",
     minutes: "мин",
-    countNote: "Күн белгіленген соң кері санақ қосылады",
+    countNote: "Салтанатты кешке дейін",
     motionEyebrow: "Кештің көңіл-күйі",
     motionTitle: "Жібек, алтын жарық және салтанатты үнсіздік",
     motionCopy:
@@ -54,10 +57,11 @@ const translations = {
     detailTime: "Басталуы",
     detailVenue: "Тойхана",
     detailAddress: "Мекенжай",
-    venueValue: "Тойхана атауы қосылады",
-    addressValue: "Мекенжай қосылады",
-    mapTitle: "Карта сілтемесі осында қосылады",
-    mapCta: "Картаны ашу",
+    venueValue: "Royal Plaza",
+    addressValue: "Royal Plaza, Алматы",
+    mapTitle: "Royal Plaza картасы",
+    mapCta: "2GIS",
+    googleMapCta: "Google Maps",
     rsvpEyebrow: "Жауап беру",
     rsvpTitle: "Келетініңізді белгілеңіз",
     rsvpCopy:
@@ -84,11 +88,11 @@ const translations = {
     primaryCta: "Смотреть приглашение",
     secondaryCta: "Подтвердить участие",
     dateLabel: "Дата",
-    dateValue: "Дата будет добавлена",
+    dateValue: "21 августа 2026",
     timeLabel: "Время",
-    timeValue: "Время уточняется",
+    timeValue: "18:00",
     placeLabel: "Место",
-    placeValue: "Адрес будет добавлен",
+    placeValue: "Royal Plaza",
     inviteEyebrow: "С теплом",
     inviteTitle: "Приглашаем на қыз ұзату",
     inviteBodyOne:
@@ -98,7 +102,7 @@ const translations = {
     days: "дней",
     hours: "час",
     minutes: "мин",
-    countNote: "Обратный отсчет включится после добавления даты",
+    countNote: "До торжественного вечера",
     motionEyebrow: "Настроение вечера",
     motionTitle: "Шелк, золотой свет и торжественная тишина",
     motionCopy:
@@ -123,10 +127,11 @@ const translations = {
     detailTime: "Начало",
     detailVenue: "Зал",
     detailAddress: "Адрес",
-    venueValue: "Название зала будет добавлено",
-    addressValue: "Адрес будет добавлен",
-    mapTitle: "Ссылка на карту будет добавлена здесь",
-    mapCta: "Открыть карту",
+    venueValue: "Royal Plaza",
+    addressValue: "Royal Plaza, Алматы",
+    mapTitle: "Карта Royal Plaza",
+    mapCta: "2GIS",
+    googleMapCta: "Google Maps",
     rsvpEyebrow: "Ответ",
     rsvpTitle: "Отметьте участие",
     rsvpCopy:
@@ -146,7 +151,10 @@ const translations = {
 
 const header = document.querySelector(".site-header");
 const langButtons = document.querySelectorAll(".lang-btn");
-const mapLink = document.querySelector(".map-link");
+const mapLinks = {
+  twoGis: document.querySelector(".map-link-2gis"),
+  google: document.querySelector(".map-link-google"),
+};
 const form = document.querySelector(".rsvp-form");
 const formStatus = document.querySelector(".form-status");
 let activeLang = localStorage.getItem("site-lang") || "kk";
@@ -272,15 +280,18 @@ langButtons.forEach((button) => {
 
 window.addEventListener("scroll", updateHeader, { passive: true });
 
-if (mapLink) {
-  if (eventDetails.mapUrl) {
-    mapLink.href = eventDetails.mapUrl;
-    mapLink.target = "_blank";
-    mapLink.rel = "noopener";
+Object.entries(mapLinks).forEach(([key, link]) => {
+  if (!link) return;
+
+  const url = eventDetails.mapUrls?.[key];
+  if (url) {
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
   } else {
-    mapLink.setAttribute("aria-disabled", "true");
+    link.setAttribute("aria-disabled", "true");
   }
-}
+});
 
 if (form) {
   form.addEventListener("submit", (event) => {

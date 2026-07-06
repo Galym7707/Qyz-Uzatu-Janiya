@@ -11,16 +11,19 @@
 
 ## Где менять реальные данные
 
-В `script.js` заполните объект `eventDetails`:
+Данные события находятся в объекте `eventDetails` в `script.js`:
 
 ```js
 const eventDetails = {
-  eventDate: "2026-09-12T18:00:00+05:00",
-  mapUrl: "https://2gis.kz/...",
+  eventDate: "2026-08-21T18:00:00+05:00",
+  mapUrls: {
+    twoGis: "https://2gis.kz/almaty/geo/70000001093728642/77.035326,43.329644",
+    google: "https://www.google.com/maps/search/?api=1&query=43.329644,77.035326",
+  },
 };
 ```
 
-Тексты даты, времени, зала и адреса сейчас оставлены как заглушки, потому что точные данные не были переданы.
+Текущие данные: Жания, 21 августа 2026, 18:00, Royal Plaza, Алматы.
 
 ## Публикация на GitHub Pages
 
