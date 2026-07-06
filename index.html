@@ -7,7 +7,7 @@
       name="description"
       content="Жанияның қыз ұзату тойына арналған заманауи шақыру сайты."
     />
-    <meta name="theme-color" content="#12090d" />
+    <meta name="theme-color" content="#fffaf3" />
     <link rel="canonical" href="https://qyz-uzatu-janiya.vercel.app/" />
     <meta property="og:title" content="Жания | Қыз ұзату" />
     <meta
@@ -19,11 +19,11 @@
     <meta property="og:site_name" content="Жания | Қыз ұзату" />
     <meta
       property="og:image"
-      content="https://qyz-uzatu-janiya.vercel.app/assets/share-preview.jpg?v=2"
+      content="https://qyz-uzatu-janiya.vercel.app/assets/share-preview.jpg?v=3"
     />
     <meta
       property="og:image:secure_url"
-      content="https://qyz-uzatu-janiya.vercel.app/assets/share-preview.jpg?v=2"
+      content="https://qyz-uzatu-janiya.vercel.app/assets/share-preview.jpg?v=3"
     />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -37,7 +37,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://qyz-uzatu-janiya.vercel.app/assets/share-preview.jpg?v=2"
+      content="https://qyz-uzatu-janiya.vercel.app/assets/share-preview.jpg?v=3"
     />
     <title>Жания | Қыз ұзату</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -48,13 +48,9 @@
     <div class="grain" aria-hidden="true"></div>
 
     <header class="site-header" data-elevated="false">
-      <a class="brand-mark" href="#top" aria-label="Басты бет">
-        <span>J</span>
-        <span data-i18n="brandMini">Жания</span>
-      </a>
       <nav class="header-nav" aria-label="Негізгі бөлімдер">
         <a href="#invite" data-i18n="navInvite">Шақыру</a>
-        <a href="#program" data-i18n="navProgram">Бағдарлама</a>
+        <a href="#details" data-i18n="navDetails">Мәлімет</a>
         <a href="#rsvp" data-i18n="navRsvp">Жауап</a>
       </nav>
       <div class="lang-switch" role="group" aria-label="Тілді таңдау">
@@ -136,15 +132,24 @@
         </div>
       </section>
 
-      <section class="motion-section" aria-labelledby="motion-title">
-        <div class="motion-copy reveal">
-          <p class="section-eyebrow" data-i18n="motionEyebrow">Кештің көңіл-күйі</p>
-          <h2 id="motion-title" data-i18n="motionTitle">Жібек, алтын жарық және салтанатты үнсіздік</h2>
-          <p data-i18n="motionCopy">
-            Видео-блок шақыруды тірі сезіндіреді: қонақ сайтты ашқанда оқиға атмосферасын
-            бірден көреді.
-          </p>
+      <section class="organizers section-shell" aria-labelledby="organizers-title">
+        <div class="section-heading reveal">
+          <p class="section-eyebrow" data-i18n="organizersEyebrow">Той иелері</p>
+          <h2 id="organizers-title" data-i18n="organizersTitle">Ұйымдастырушылар</h2>
         </div>
+        <div class="organizer-list reveal">
+          <div class="organizer-item">
+            <span data-i18n="fatherLabel">Әкесі</span>
+            <strong data-i18n="fatherName">Мендулла</strong>
+          </div>
+          <div class="organizer-item">
+            <span data-i18n="motherLabel">Анасы</span>
+            <strong data-i18n="motherName">Салтанат</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="video-section" aria-label="Қыз ұзату видеосы">
         <div class="video-frame reveal">
           <video
             src="assets/veil-loop.mp4"
@@ -155,43 +160,6 @@
             playsinline
             preload="metadata"
           ></video>
-        </div>
-      </section>
-
-      <section class="program section-shell" id="program" aria-labelledby="program-title">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow" data-i18n="programEyebrow">Кеш жоспары</p>
-          <h2 id="program-title" data-i18n="programTitle">Бағдарлама</h2>
-        </div>
-        <div class="program-track">
-          <article class="program-item reveal">
-            <span>01</span>
-            <div>
-              <h3 data-i18n="programOneTitle">Қонақтарды қарсы алу</h3>
-              <p data-i18n="programOneText">Келу уақыты мен зал атауы нақты мәліметтермен жаңартылады.</p>
-            </div>
-          </article>
-          <article class="program-item reveal">
-            <span>02</span>
-            <div>
-              <h3 data-i18n="programTwoTitle">Ақ тілек</h3>
-              <p data-i18n="programTwoText">Жақындардың лебізі және отбасылық жылы сәттер.</p>
-            </div>
-          </article>
-          <article class="program-item reveal">
-            <span>03</span>
-            <div>
-              <h3 data-i18n="programThreeTitle">Қызды шығарып салу</h3>
-              <p data-i18n="programThreeText">Ұзату дәстүріне арналған негізгі салтанатты бөлім.</p>
-            </div>
-          </article>
-          <article class="program-item reveal">
-            <span>04</span>
-            <div>
-              <h3 data-i18n="programFourTitle">Мерекелік кеш</h3>
-              <p data-i18n="programFourText">Музыка, естелік фото және қонақтармен ортақ қуаныш.</p>
-            </div>
-          </article>
         </div>
       </section>
 
