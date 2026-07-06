@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="kk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Жанияның қыз ұзату тойына арналған заманауи шақыру сайты."
+    />
+    <meta name="theme-color" content="#12090d" />
+    <meta property="og:title" content="Жания | Қыз ұзату" />
+    <meta
+      property="og:description"
+      content="Қадірлі қонақ, Жанияның қыз ұзату тойына шақырамыз."
+    />
+    <meta property="og:image" content="assets/hero-poster.jpg" />
+    <title>Жания | Қыз ұзату</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="assets/hero-janiya.webp" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header" data-elevated="false">
+      <a class="brand-mark" href="#top" aria-label="Басты бет">
+        <span>J</span>
+        <span data-i18n="brandMini">Жания</span>
+      </a>
+      <nav class="header-nav" aria-label="Негізгі бөлімдер">
+        <a href="#invite" data-i18n="navInvite">Шақыру</a>
+        <a href="#program" data-i18n="navProgram">Бағдарлама</a>
+        <a href="#rsvp" data-i18n="navRsvp">Жауап</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Тілді таңдау">
+        <button class="lang-btn is-active" type="button" data-lang="kk">KZ</button>
+        <button class="lang-btn" type="button" data-lang="ru">RU</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <picture class="hero-media">
+          <img
+            src="assets/hero-janiya.webp"
+            alt="Қазақы сәндегі қалыңдықтың көркем бейнесі"
+            width="1920"
+            height="960"
+          />
+        </picture>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="kicker reveal" data-i18n="heroKicker">Қыз ұзату шақыруы</p>
+          <h1 id="hero-title" class="hero-title reveal">Жания</h1>
+          <p class="hero-copy reveal" data-i18n="heroCopy">
+            Қадірлі ағайын-туыс, құда-жекжат, дос-жаран! Сіздерді аяулы қызымыз
+            Жанияның қыз ұзату тойының қадірлі қонағы болуға шақырамыз.
+          </p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#invite" data-i18n="primaryCta">Шақыруды көру</a>
+            <a class="btn btn-ghost" href="#rsvp" data-i18n="secondaryCta">Қатысуымды білдіру</a>
+          </div>
+        </div>
+        <div class="event-ribbon reveal" aria-label="Той туралы қысқаша мәлімет">
+          <div>
+            <span data-i18n="dateLabel">Күні</span>
+            <strong data-i18n="dateValue">Күні жақында қосылады</strong>
+          </div>
+          <div>
+            <span data-i18n="timeLabel">Уақыты</span>
+            <strong data-i18n="timeValue">Уақыты нақтыланады</strong>
+          </div>
+          <div>
+            <span data-i18n="placeLabel">Орын</span>
+            <strong data-i18n="placeValue">Мекенжай қосылады</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro section-shell" id="invite" aria-labelledby="invite-title">
+        <div class="section-heading reveal">
+          <p class="section-eyebrow" data-i18n="inviteEyebrow">Ақ ниетпен</p>
+          <h2 id="invite-title" data-i18n="inviteTitle">Қыз ұзату тойына шақырамыз</h2>
+        </div>
+        <div class="intro-grid">
+          <div class="intro-letter reveal">
+            <p data-i18n="inviteBodyOne">
+              Бұл кеш - ата-ана шаңырағынан жаңа өмірге ақ тілекпен шығарып салатын
+              ерекше сәт. Сізбен бірге бөліскіміз келетін жылы естелік осы жерден басталады.
+            </p>
+            <p data-i18n="inviteBodyTwo">
+              Қатысуыңыз біз үшін үлкен қуаныш. Барлық нақты мәліметтер төмендегі
+              бөлімдерге қосылады.
+            </p>
+          </div>
+          <div class="countdown reveal" aria-label="Кері санақ">
+            <div class="count-cell">
+              <strong data-count="days">--</strong>
+              <span data-i18n="days">күн</span>
+            </div>
+            <div class="count-cell">
+              <strong data-count="hours">--</strong>
+              <span data-i18n="hours">сағ</span>
+            </div>
+            <div class="count-cell">
+              <strong data-count="minutes">--</strong>
+              <span data-i18n="minutes">мин</span>
+            </div>
+            <p class="count-note" data-i18n="countNote">Күн белгіленген соң кері санақ қосылады</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="motion-section" aria-labelledby="motion-title">
+        <div class="motion-copy reveal">
+          <p class="section-eyebrow" data-i18n="motionEyebrow">Кештің көңіл-күйі</p>
+          <h2 id="motion-title" data-i18n="motionTitle">Жібек, алтын жарық және салтанатты үнсіздік</h2>
+          <p data-i18n="motionCopy">
+            Видео-блок шақыруды тірі сезіндіреді: қонақ сайтты ашқанда оқиға атмосферасын
+            бірден көреді.
+          </p>
+        </div>
+        <div class="video-frame reveal">
+          <video
+            src="assets/veil-loop.mp4"
+            poster="assets/hero-poster.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+        </div>
+      </section>
+
+      <section class="program section-shell" id="program" aria-labelledby="program-title">
+        <div class="section-heading reveal">
+          <p class="section-eyebrow" data-i18n="programEyebrow">Кеш жоспары</p>
+          <h2 id="program-title" data-i18n="programTitle">Бағдарлама</h2>
+        </div>
+        <div class="program-track">
+          <article class="program-item reveal">
+            <span>01</span>
+            <div>
+              <h3 data-i18n="programOneTitle">Қонақтарды қарсы алу</h3>
+              <p data-i18n="programOneText">Келу уақыты мен зал атауы нақты мәліметтермен жаңартылады.</p>
+            </div>
+          </article>
+          <article class="program-item reveal">
+            <span>02</span>
+            <div>
+              <h3 data-i18n="programTwoTitle">Ақ тілек</h3>
+              <p data-i18n="programTwoText">Жақындардың лебізі және отбасылық жылы сәттер.</p>
+            </div>
+          </article>
+          <article class="program-item reveal">
+            <span>03</span>
+            <div>
+              <h3 data-i18n="programThreeTitle">Қызды шығарып салу</h3>
+              <p data-i18n="programThreeText">Ұзату дәстүріне арналған негізгі салтанатты бөлім.</p>
+            </div>
+          </article>
+          <article class="program-item reveal">
+            <span>04</span>
+            <div>
+              <h3 data-i18n="programFourTitle">Мерекелік кеш</h3>
+              <p data-i18n="programFourText">Музыка, естелік фото және қонақтармен ортақ қуаныш.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="gallery" aria-labelledby="gallery-title">
+        <div class="gallery-copy reveal">
+          <p class="section-eyebrow" data-i18n="galleryEyebrow">Фото көңіл-күй</p>
+          <h2 id="gallery-title" data-i18n="galleryTitle">Дәстүрге жақын, бүгінгі күнге лайық</h2>
+          <p data-i18n="galleryCopy">
+            Сайтта басты фото, салтанатты деталь және қысқа видео бар. Нақты отбасылық
+            фото берілгенде осы блоктар оңай ауыстырылады.
+          </p>
+        </div>
+        <div class="gallery-media reveal">
+          <img
+            src="assets/ceremony-still.webp"
+            alt="Алтын өрнекті дәстүрлі бұйымдар мен зергерлік әшекейлер"
+            width="1280"
+            height="1728"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="details section-shell" id="details" aria-labelledby="details-title">
+        <div class="section-heading reveal">
+          <p class="section-eyebrow" data-i18n="detailsEyebrow">Қонаққа қажеті</p>
+          <h2 id="details-title" data-i18n="detailsTitle">Мәліметтер</h2>
+        </div>
+        <div class="details-layout">
+          <div class="detail-list reveal">
+            <div class="detail-row">
+              <span data-i18n="detailDate">Күні</span>
+              <strong data-i18n="dateValue">Күні жақында қосылады</strong>
+            </div>
+            <div class="detail-row">
+              <span data-i18n="detailTime">Басталуы</span>
+              <strong data-i18n="timeValue">Уақыты нақтыланады</strong>
+            </div>
+            <div class="detail-row">
+              <span data-i18n="detailVenue">Тойхана</span>
+              <strong data-i18n="venueValue">Тойхана атауы қосылады</strong>
+            </div>
+            <div class="detail-row">
+              <span data-i18n="detailAddress">Мекенжай</span>
+              <strong data-i18n="addressValue">Мекенжай қосылады</strong>
+            </div>
+          </div>
+          <div class="map-panel reveal" aria-label="Карта орны">
+            <div class="map-lines" aria-hidden="true"></div>
+            <p data-i18n="mapTitle">Карта сілтемесі осында қосылады</p>
+            <a class="btn btn-ghost map-link" href="#" data-i18n="mapCta">Картаны ашу</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="rsvp" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="rsvp-copy reveal">
+          <p class="section-eyebrow" data-i18n="rsvpEyebrow">Жауап беру</p>
+          <h2 id="rsvp-title" data-i18n="rsvpTitle">Келетініңізді белгілеңіз</h2>
+          <p data-i18n="rsvpCopy">
+            Бұл форма әзірге сайт ішіндегі әдемі интерактив ретінде жұмыс істейді. Қажет болса,
+            оны WhatsApp немесе Google Forms сілтемесіне қосуға болады.
+          </p>
+        </div>
+        <form class="rsvp-form reveal" aria-describedby="form-status">
+          <label>
+            <span data-i18n="nameLabel">Атыңыз</span>
+            <input
+              type="text"
+              name="name"
+              autocomplete="name"
+              required
+              data-placeholder-kk="Атыңызды жазыңыз"
+              data-placeholder-ru="Введите имя"
+              placeholder="Атыңызды жазыңыз"
+            />
+          </label>
+          <label>
+            <span data-i18n="guestLabel">Қонақ саны</span>
+            <select name="guests">
+              <option value="1" data-i18n="oneGuest">1 қонақ</option>
+              <option value="2" data-i18n="twoGuests">2 қонақ</option>
+              <option value="3" data-i18n="threeGuests">3 қонақ</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="phoneLabel">Телефон</span>
+            <input
+              type="tel"
+              name="phone"
+              autocomplete="tel"
+              data-placeholder-kk="+7..."
+              data-placeholder-ru="+7..."
+              placeholder="+7..."
+            />
+          </label>
+          <button class="btn btn-primary" type="submit" data-i18n="submitRsvp">Жауап жіберу</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footerText">Жанияның қыз ұзату шақыру сайты</p>
+      <a href="#top" data-i18n="footerTop">Жоғарыға</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
