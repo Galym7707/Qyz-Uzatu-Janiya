@@ -41,6 +41,12 @@
     />
     <title>Жания | Қыз ұзату</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preload" href="assets/hero-janiya.webp" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -48,11 +54,6 @@
     <div class="grain" aria-hidden="true"></div>
 
     <header class="site-header" data-elevated="false">
-      <nav class="header-nav" aria-label="Негізгі бөлімдер">
-        <a href="#invite" data-i18n="navInvite">Шақыру</a>
-        <a href="#details" data-i18n="navDetails">Мәлімет</a>
-        <a href="#rsvp" data-i18n="navRsvp">Жауап</a>
-      </nav>
       <div class="lang-switch" role="group" aria-label="Тілді таңдау">
         <button class="lang-btn is-active" type="button" data-lang="kk">KZ</button>
         <button class="lang-btn" type="button" data-lang="ru">RU</button>
@@ -71,40 +72,22 @@
         </picture>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="kicker reveal" data-i18n="heroKicker">Қыз ұзату шақыруы</p>
+          <p class="kicker reveal" data-i18n="heroKicker">Қыз ұзату</p>
           <h1 id="hero-title" class="hero-title reveal">Жания</h1>
-          <p class="hero-copy reveal" data-i18n="heroCopy">
-            Қадірлі ағайын-туыс, құда-жекжат, дос-жаран! Сіздерді аяулы қызымыз
-            Жанияның қыз ұзату тойының қадірлі қонағы болуға шақырамыз.
-          </p>
-          <div class="hero-actions reveal">
-            <a class="btn btn-primary" href="#invite" data-i18n="primaryCta">Шақыруды көру</a>
-            <a class="btn btn-ghost" href="#rsvp" data-i18n="secondaryCta">Қатысуымды білдіру</a>
-          </div>
-        </div>
-        <div class="event-ribbon reveal" aria-label="Той туралы қысқаша мәлімет">
-          <div>
-            <span data-i18n="dateLabel">Күні</span>
-            <strong data-i18n="dateValue">21 тамыз 2026</strong>
-          </div>
-          <div>
-            <span data-i18n="timeLabel">Уақыты</span>
-            <strong data-i18n="timeValue">18:00</strong>
-          </div>
-          <div>
-            <span data-i18n="placeLabel">Орын</span>
-            <strong data-i18n="placeValue">Royal Plaza</strong>
-          </div>
+          <p class="hero-event reveal" data-i18n="heroEvent">Қыз ұзату</p>
+          <p class="hero-date reveal">21/08/2026</p>
+          <a class="play-scroll reveal" href="#video" data-i18n-aria="playCta" aria-label="Бейне қосу">
+            <span class="play-ring" data-i18n="playCta">Бейне қосу</span>
+            <span class="play-icon" aria-hidden="true"></span>
+          </a>
         </div>
       </section>
 
       <section class="intro section-shell" id="invite" aria-labelledby="invite-title">
-        <div class="section-heading reveal">
-          <p class="section-eyebrow" data-i18n="inviteEyebrow">Ақ ниетпен</p>
+        <div class="invitation-card reveal">
+          <p class="section-eyebrow" data-i18n="inviteEyebrow">Құрметті қонақтар!</p>
           <h2 id="invite-title" data-i18n="inviteTitle">Қыз ұзату тойына шақырамыз</h2>
-        </div>
-        <div class="intro-grid">
-          <div class="intro-letter reveal">
+          <div class="intro-letter">
             <p data-i18n="inviteBodyOne">
               Бұл кеш - ата-ана шаңырағынан жаңа өмірге ақ тілекпен шығарып салатын
               ерекше сәт. Сізбен бірге бөліскіміз келетін жылы естелік осы жерден басталады.
@@ -114,20 +97,11 @@
               бөлімдерге қосылады.
             </p>
           </div>
-          <div class="countdown reveal" aria-label="Кері санақ">
-            <div class="count-cell">
-              <strong data-count="days">--</strong>
-              <span data-i18n="days">күн</span>
-            </div>
-            <div class="count-cell">
-              <strong data-count="hours">--</strong>
-              <span data-i18n="hours">сағ</span>
-            </div>
-            <div class="count-cell">
-              <strong data-count="minutes">--</strong>
-              <span data-i18n="minutes">мин</span>
-            </div>
-            <p class="count-note" data-i18n="countNote">Күн белгіленген соң кері санақ қосылады</p>
+          <div class="flourish" aria-hidden="true"></div>
+          <div class="calendar-strip" aria-label="Той күні">
+            <span data-i18n="dateMonth">тамыз</span>
+            <strong>21</strong>
+            <span>2026</span>
           </div>
         </div>
       </section>
@@ -149,7 +123,7 @@
         </div>
       </section>
 
-      <section class="video-section" aria-label="Қыз ұзату видеосы">
+      <section class="video-section" id="video" aria-label="Қыз ұзату видеосы">
         <div class="video-frame reveal">
           <video
             src="assets/veil-loop.mp4"
@@ -214,6 +188,24 @@
               <a class="btn btn-ghost map-link map-link-2gis" href="#" data-i18n="mapCta">2GIS</a>
               <a class="btn btn-ghost map-link map-link-google" href="#" data-i18n="googleMapCta">Google Maps</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="countdown-section section-shell" aria-label="Кері санақ">
+        <p class="section-eyebrow reveal" data-i18n="countNote">Салтанатты кешке дейін</p>
+        <div class="countdown reveal">
+          <div class="count-cell">
+            <strong data-count="days">--</strong>
+            <span data-i18n="days">күн</span>
+          </div>
+          <div class="count-cell">
+            <strong data-count="hours">--</strong>
+            <span data-i18n="hours">сағ</span>
+          </div>
+          <div class="count-cell">
+            <strong data-count="minutes">--</strong>
+            <span data-i18n="minutes">мин</span>
           </div>
         </div>
       </section>

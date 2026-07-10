@@ -11,18 +11,21 @@ const translations = {
     navInvite: "Шақыру",
     navDetails: "Мәлімет",
     navRsvp: "Жауап",
-    heroKicker: "Қыз ұзату шақыруы",
+    heroKicker: "Қыз ұзату",
+    heroEvent: "Қыз ұзату",
+    playCta: "Бейне қосу",
     heroCopy:
       "Қадірлі ағайын-туыс, құда-жекжат, дос-жаран! Сіздерді аяулы қызымыз Жанияның қыз ұзату тойының қадірлі қонағы болуға шақырамыз.",
     primaryCta: "Шақыруды көру",
     secondaryCta: "Қатысуымды білдіру",
     dateLabel: "Күні",
     dateValue: "21 тамыз 2026",
+    dateMonth: "тамыз",
     timeLabel: "Уақыты",
     timeValue: "18:00",
     placeLabel: "Орын",
     placeValue: "Royal Plaza",
-    inviteEyebrow: "Ақ ниетпен",
+    inviteEyebrow: "Құрметті қонақтар!",
     inviteTitle: "Қыз ұзату тойына шақырамыз",
     inviteBodyOne:
       "Бұл кеш - ата-ана шаңырағынан жаңа өмірге ақ тілекпен шығарып салатын ерекше сәт. Сізбен бірге бөліскіміз келетін жылы естелік осы жерден басталады.",
@@ -72,18 +75,21 @@ const translations = {
     navInvite: "Приглашение",
     navDetails: "Детали",
     navRsvp: "Ответ",
-    heroKicker: "Приглашение на қыз ұзату",
+    heroKicker: "Қыз ұзату",
+    heroEvent: "Қыз ұзату",
+    playCta: "Включить видео",
     heroCopy:
       "Дорогие родные, близкие и друзья! Приглашаем вас стать почетными гостями на торжестве қыз ұзату нашей дорогой Жании.",
     primaryCta: "Смотреть приглашение",
     secondaryCta: "Подтвердить участие",
     dateLabel: "Дата",
     dateValue: "21 августа 2026",
+    dateMonth: "август",
     timeLabel: "Время",
     timeValue: "18:00",
     placeLabel: "Место",
     placeValue: "Royal Plaza",
-    inviteEyebrow: "С теплом",
+    inviteEyebrow: "Дорогие гости!",
     inviteTitle: "Приглашаем на қыз ұзату",
     inviteBodyOne:
       "Этот вечер посвящен особенному моменту, когда родительский дом провожает дочь в новую жизнь с добрыми пожеланиями.",
@@ -149,6 +155,13 @@ function setLanguage(lang) {
     const key = node.dataset.i18n;
     if (translations[activeLang][key]) {
       node.textContent = translations[activeLang][key];
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-aria]").forEach((node) => {
+    const key = node.dataset.i18nAria;
+    if (translations[activeLang][key]) {
+      node.setAttribute("aria-label", translations[activeLang][key]);
     }
   });
 
