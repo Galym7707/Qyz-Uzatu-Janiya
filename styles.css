@@ -72,6 +72,11 @@ select {
   font: inherit;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
 main,
 .site-footer {
   width: min(100%, 760px);
@@ -140,6 +145,71 @@ main,
 .lang-btn.is-active {
   background: var(--ink);
   color: var(--ivory);
+}
+
+.music-toggle {
+  position: fixed;
+  right: max(16px, calc((100vw - 760px) / 2 + 18px));
+  bottom: 18px;
+  z-index: 45;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgba(78, 45, 36, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 250, 243, 0.88);
+  color: var(--ink);
+  box-shadow: 0 16px 42px rgba(43, 23, 20, 0.16);
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+}
+
+.music-bars {
+  display: grid;
+  grid-template-columns: repeat(3, 4px);
+  align-items: end;
+  gap: 4px;
+  height: 22px;
+}
+
+.music-bars span {
+  display: block;
+  height: 9px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.86;
+}
+
+.music-bars span:nth-child(2) {
+  height: 17px;
+}
+
+.music-bars span:nth-child(3) {
+  height: 12px;
+}
+
+.music-toggle.is-playing .music-bars span {
+  animation: music-pulse 760ms ease-in-out infinite;
+}
+
+.music-toggle.is-playing .music-bars span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.music-toggle.is-playing .music-bars span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+@keyframes music-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.56);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
 }
 
 .hero {
@@ -552,6 +622,10 @@ h2 {
   padding: clamp(72px, 11vw, 138px) 0;
 }
 
+.gallery {
+  display: none;
+}
+
 .gallery-media {
   position: relative;
   justify-self: end;
@@ -669,6 +743,10 @@ h2 {
   padding: clamp(18px, 4vw, 34px);
   border: 2px solid rgba(43, 23, 20, 0.2);
   background: rgba(255, 255, 255, 0.78);
+}
+
+.rsvp-copy [data-i18n="rsvpCopy"] {
+  display: none;
 }
 
 .rsvp-form label {

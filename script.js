@@ -14,6 +14,8 @@ const translations = {
     heroKicker: "Қыз ұзату",
     heroEvent: "Қыз ұзату",
     playCta: "Бейне қосу",
+    musicPlay: "Музыканы қосу",
+    musicPause: "Музыканы тоқтату",
     heroCopy:
       "Қадірлі ағайын-туыс, құда-жекжат, дос-жаран! Сіздерді аяулы қызымыз Жанияның қыз ұзату тойының қадірлі қонағы болуға шақырамыз.",
     primaryCta: "Шақыруды көру",
@@ -68,6 +70,7 @@ const translations = {
     threeGuests: "3 қонақ",
     submitRsvp: "Жауап жіберу",
     formThanks: "Рақмет! Жауабыңыз белгіленді.",
+    formError: "Жауап сақталмады. Қайта байқап көріңіз.",
     footerText: "Жанияның қыз ұзату шақыру сайты",
     footerTop: "Жоғарыға",
   },
@@ -78,6 +81,8 @@ const translations = {
     heroKicker: "Қыз ұзату",
     heroEvent: "Қыз ұзату",
     playCta: "Включить видео",
+    musicPlay: "Включить музыку",
+    musicPause: "Выключить музыку",
     heroCopy:
       "Дорогие родные, близкие и друзья! Приглашаем вас стать почетными гостями на торжестве қыз ұзату нашей дорогой Жании.",
     primaryCta: "Смотреть приглашение",
@@ -132,6 +137,7 @@ const translations = {
     threeGuests: "3 гостя",
     submitRsvp: "Отправить ответ",
     formThanks: "Спасибо! Ваш ответ отмечен.",
+    formError: "Ответ не сохранился. Попробуйте еще раз.",
     footerText: "Сайт-приглашение на қыз ұзату Жании",
     footerTop: "Наверх",
   },
@@ -145,7 +151,10 @@ const mapLinks = {
 };
 const form = document.querySelector(".rsvp-form");
 const formStatus = document.querySelector(".form-status");
+const audio = document.querySelector(".site-audio");
+const musicToggle = document.querySelector(".music-toggle");
 let activeLang = localStorage.getItem("site-lang") || "kk";
+let isMusicPlaying = false;
 
 function setLanguage(lang) {
   activeLang = translations[lang] ? lang : "kk";
@@ -179,7 +188,18 @@ function setLanguage(lang) {
     formStatus.textContent = translations[activeLang].formThanks;
   }
 
+  updateMusicButton();
+
   localStorage.setItem("site-lang", activeLang);
+}
+
+function updateMusicButton() {
+  if (!musicToggle) return;
+
+  const key = isMusicPlaying ? "musicPause" : "musicPlay";
+  musicToggle.classList.toggle("is-playing", isMusicPlaying);
+  musicToggle.setAttribute("aria-pressed", String(isMusicPlaying));
+  musicToggle.setAttribute("aria-label", translations[activeLang][key]);
 }
 
 function updateHeader() {
@@ -269,6 +289,56 @@ function initVideoPlayback() {
   playVideo();
 }
 
+function initMusicPlayback() {
+  if (!audio || !musicToggle) return;
+
+  audio.volume = 0.62;
+
+  const playMusic = () => {
+    const request = audio.play();
+    if (request && typeof request.then === "function") {
+      request
+        .then(() => {
+          isMusicPlaying = true;
+          updateMusicButton();
+        })
+        .catch(() => {
+          isMusicPlaying = false;
+          updateMusicButton();
+        });
+      return;
+    }
+
+    isMusicPlaying = true;
+    updateMusicButton();
+  };
+
+  const pauseMusic = () => {
+    audio.pause();
+    isMusicPlaying = false;
+    updateMusicButton();
+  };
+
+  musicToggle.addEventListener("click", () => {
+    if (audio.paused) {
+      playMusic();
+    } else {
+      pauseMusic();
+    }
+  });
+
+  audio.addEventListener("pause", () => {
+    isMusicPlaying = false;
+    updateMusicButton();
+  });
+  audio.addEventListener("play", () => {
+    isMusicPlaying = true;
+    updateMusicButton();
+  });
+
+  updateMusicButton();
+}
+
 langButtons.forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
@@ -289,10 +359,39 @@ Object.entries(mapLinks).forEach(([key, link]) => {
 });
 
 if (form) {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    formStatus.textContent = translations[activeLang].formThanks;
-    form.reset();
+    const submitButton = form.querySelector('button[type="submit"]');
+    const payload = {
+      name: form.elements.name.value,
+      guests: form.elements.guests.value,
+      phone: form.elements.phone.value,
+      language: activeLang,
+    };
+
+    if (submitButton) submitButton.disabled = true;
+    formStatus.textContent = "";
+
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("RSVP request failed");
+      }
+
+      formStatus.textContent = translations[activeLang].formThanks;
+      form.reset();
+    } catch (error) {
+      formStatus.textContent = translations[activeLang].formError;
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
   });
 }
 
@@ -301,4 +400,5 @@ updateHeader();
 updateCountdown();
 initReveal();
 initVideoPlayback();
+initMusicPlayback();
 setInterval(updateCountdown, 60 * 1000);
