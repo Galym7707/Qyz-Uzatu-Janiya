@@ -293,12 +293,14 @@ function initMusicPlayback() {
   if (!audio || !musicToggle) return;
 
   audio.volume = 0.62;
+  let musicHasStarted = false;
 
   const playMusic = () => {
     const request = audio.play();
     if (request && typeof request.then === "function") {
       request
         .then(() => {
+          musicHasStarted = true;
           isMusicPlaying = true;
           updateMusicButton();
         })
@@ -309,6 +311,7 @@ function initMusicPlayback() {
       return;
     }
 
+    musicHasStarted = true;
     isMusicPlaying = true;
     updateMusicButton();
   };
@@ -326,6 +329,14 @@ function initMusicPlayback() {
       pauseMusic();
     }
   });
+
+  // Browsers block audible autoplay, so start the track from the visitor's first gesture.
+  const startOnFirstGesture = (event) => {
+    if (event.target instanceof Element && event.target.closest(".music-toggle")) return;
+    if (!musicHasStarted && audio.paused) playMusic();
+  };
+  document.addEventListener("pointerdown", startOnFirstGesture, { once: true, passive: true });
+  document.addEventListener("keydown", startOnFirstGesture, { once: true });
 
   audio.addEventListener("pause", () => {
     isMusicPlaying = false;
